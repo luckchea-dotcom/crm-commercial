@@ -104,6 +104,7 @@
     }
 
     function creerFichier() {
+  console.log("➡️ Création du fichier commerciaux.json...");
       const fileMetadata = { name: "commerciaux.json", mimeType: "application/json" };
       const fileContent = JSON.stringify({ commerciaux: [] });
       const blob = new Blob([fileContent], { type: "application/json" });
@@ -122,6 +123,7 @@
     }
 
     function lireFichier() {
+  console.log("➡️ Lecture du fichier commerciaux.json avec ID:", FILE_ID);
       gapi.client.drive.files.get({
         fileId: FILE_ID,
         alt: "media"
@@ -132,6 +134,7 @@
     }
 
     function sauvegarderFichier() {
+  console.log("➡️ Sauvegarde des commerciaux:", commerciaux);
       const fileContent = JSON.stringify({ commerciaux: commerciaux }, null, 2);
       const blob = new Blob([fileContent], { type: "application/json" });
       const form = new FormData();
